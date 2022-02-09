@@ -17,8 +17,8 @@ from PIL import ImageTk, Image
 win = Tk() # Create an instance of Ttkinter frame [this is the GUI]
 
 stopwords = stopwords.words("english") # Declare stopwords using NLTK's pre-determined list
-uniform_width = 800 # Set width of all graphic elements in program
-uniform_height = 400 # Set height of all graphic elements in program
+uniform_width = 550 # Set width of all graphic elements in program
+uniform_height = 325 # Set height of all graphic elements in program
 
 def get_text(path: str):
     # TODO: Add support for other file extensions
@@ -26,12 +26,12 @@ def get_text(path: str):
     file = docx.Document(path)
     text: str = ""
     for paragraph in file.paragraphs:
-        text += paragraph.text
+        text += paragraph.text.lower() # Convert text in each paragraph to lowercase and add to persistent string
     return text
 
 def create_wordcloud(text: str):
     # Create a word cloud graphic (will be converted into an image)
-    wordcloud = WordCloud(width = uniform_width, height = uniform_height, max_words = 25, stopwords = stopwords, mode = "RGBA", background_color = None, collocations = False, regexp = None, min_word_length = 4)
+    wordcloud = WordCloud(width = uniform_width, height = uniform_height, max_words = 25, stopwords = stopwords, mode = "RGBA", relative_scaling = 1.0, background_color = None, collocations = False, regexp = None, min_word_length = 4, collocation_threshold = 100)
     wordcloud.generate(text) # Pass file into word cloud instance
     return wordcloud
 
