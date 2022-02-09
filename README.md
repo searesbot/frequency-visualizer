@@ -1,2 +1,10 @@
 # frequency-visualizer
 Creates a word cloud visualization using frequencies of terms in a Microsoft Word document (.docx)
+
+-----------------
+
+I've created many versions of the same resume to apply to different jobs. I wanted a way to quickly see what meaning the language of each version conveyed to whoever was reading it so that I could tailor the contents in that version to the language used in the job posting. This is a bare bones GUI application that allows a user to select a file [currently only supports .docx] from his or her local file system and generates a word cloud visualization based on term frequency from that file. Again, it was a quick way for me to visualize the type of language each version of my resume was conveying.
+
+This was my first time using the wordcloud library, so it was neat combing through its documentation. I originally went about creating this program in a very arbitrary way, with a deep foray into NLP, tokenization stemming, and lemmatizing. After realizing I had what seemed like far too many lines of code for a problem this small, I took another look at my approach and realized the wordcloud module had in-built support [its generate() and generate_from_text() methods]...hence the dive into the wordcloud documentation. I've got no background in machine learning, NLP, etc., but I'm very interested in it so I don't regret all the time I "wasted" reading about those topics online in preparation for this project. 
+
+This is the first [meaning the only finished] version of this project, so its visual appeal...doesn't quite exist, to say the least. I'd like to get around to making this a better application with more robust code [and specific support for other file types, such as .pdf], but I reckon my next project will be something else to do with NLP.
